@@ -1,0 +1,59 @@
+<scene>
+    <!-- Integrator -->
+    <integrator type="path_mis"/>
+
+    <!-- Perspective camera -->
+    <camera type="perspective">
+        <transform name="toWorld">
+        	<lookat target="0,1.3,1.7" origin="13,13,2" up="0,0,1"/>
+        </transform>
+        <float name="fov" value="30"/>
+        <integer name="width" value="960"/>  <!-- have to choose proper values -->
+        <integer name="height" value="540"/>
+    </camera>
+
+
+    <!-- Sample generator, number of samples per pixel -->
+    <sampler type="independent">
+        <integer name="sampleCount" value="1"/>
+    </sampler>
+
+
+	<mesh type="obj">
+	    <string name="filename" value="meshes/sphere.obj"/>
+	    <emitter type="envmap">
+			<float name="strength" value="5.0"/>
+			<string name="filename" value="../scenes/final/environmentMap/026_Half.exr"/>
+	    </emitter>
+    </mesh>
+
+		
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/bunny.obj"/>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.9 0.9 0.9"/>
+		</bsdf>
+	</mesh>	
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/ajax.obj"/>
+		<bsdf type="mirror"/>
+	</mesh>
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/dragon.obj"/>
+		<bsdf type="dielectric"/>
+	</mesh>
+
+	<mesh type="obj">
+		<string name="filename" value="meshes/plane.obj"/>
+		<bsdf type="microfacet">
+			<color name="kd" value="0.0175, 0.0225, 0.0325"/>
+			<float name="alpha" value="0.05"/>
+		</bsdf>
+	</mesh>
+
+</scene>
+
+
